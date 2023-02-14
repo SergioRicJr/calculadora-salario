@@ -32,7 +32,7 @@ formulario.addEventListener("submit", (e)=> {
     e.preventDefault()
     // adicionar condicoes de preenchimento dos campos
     if (salarioBruto.value == "" || dependentes.value == "") {
-        window.alert("Por favor ,preencha os campos corretamente!")
+        window.alert("Por favor, preencha os campos corretamente!")
     } else {
         calcular()
     }

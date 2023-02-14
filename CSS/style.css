@@ -76,6 +76,7 @@ width: 350px;
     bottom: 5px;
     z-index: 1;
     color: #ffffff;
+    transition: .3s;
 }
 
 .vale{
@@ -120,8 +121,6 @@ width: 350px;
     height: 80vh;
     gap: 40px;
 }
-
-
 
 .resultado{
     display: none;
