@@ -1,11 +1,14 @@
-var formulario = document.querySelector("form")
-var salarioBruto = document.querySelector("")
-var dependentes = document.querySelector("")
-var resultado = document.querySelector("")
-var tabelaINSS = document.querySelector("")
-var tabelaIRRF = document.querySelector("")
-var tabelaValeTransporte = document.querySelector("")
-var tabelaSalarioLiquido = document.querySelector("")
+var formulario = document.querySelector("#Salario")
+var salarioBruto = document.querySelector("#salario-bruto")
+var dependentes = document.querySelector("#dependentes")
+// var resultado = document.querySelector("")
+var tabelaSalarioBruto = document.querySelector(".valor-salario-bruto")
+var tabelaINSS = document.querySelector(".valor-inss")
+var tabelaIRRF = document.querySelector(".valor-irrf")
+var tabelaValeTransporte = document.querySelector(".valor-transporte")
+var tabelaSalarioLiquido = document.querySelector(".valor-salario-liquido")
+var Enviar = document.querySelector(".botao")
+var Vale = document.querySelector("#checkbox")
 
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault()
@@ -14,13 +17,10 @@ formulario.addEventListener("submit", (e)=> {
 })
 
 function calcular() {
-    var salarioBrutoValue = salarioBruto.value
-    var dependentesValue = dependentes.value
-    
-    
-    var valeTransporte = salarioBrutoValue*0.06
+    var salarioBrutoValue = Number(salarioBruto.value)
+    var dependentesValue = Number(dependentes.value)
 
-    switch (salarioBrutoValue) {
+    switch (true) {
         case salarioBrutoValue <= 1302.00:
             var INSS = salarioBrutoValue*0.075
             break
@@ -40,7 +40,7 @@ function calcular() {
             window.alert("error")
     }
 
-    switch (salarioBrutoValue) {
+    switch (true) {
         case salarioBrutoValue <= 1903.98:
             var IRRF = 0
             break
@@ -60,11 +60,25 @@ function calcular() {
             window.alert("error")
     }
 
-    var salarioLiquido = salarioBruto - valeTransporte - INSS - IRRF
+    INSS = Number(INSS).toFixed(2)
+    IRRF = Number(IRRF).toFixed(2)
 
-    tabelaINSS.textContent = `R$${INSS.toFixed(2)}`
-    tabelaIRRF.textContent = `R$${IRRF.toFixed(2)}`
-    tabelaValeTransporte.textContent = `R$${valeTransporte}`
-    tabelaSalarioLiquido.textContent = `R$${salarioLiquido}`
-    resultado.classList.toggle("visivel")
+    if (Vale.checked){
+        var valeTransporte = Number(salarioBrutoValue*0.06)
+        tabelaValeTransporte.textContent = `R$ ${valeTransporte}`
+    }
+    else {
+        var valeTransporte = 0
+        tabelaValeTransporte.textContent = `R$ 0,00`
+    }
+    
+    var salarioLiquido = salarioBrutoValue - valeTransporte - INSS - IRRF
+
+    tabelaSalarioBruto.textContent = `R$ ${salarioBrutoValue}`
+    tabelaINSS.textContent = `R$ ${INSS}`
+    tabelaIRRF.textContent = `R$ ${IRRF}`
+    tabelaSalarioLiquido.textContent = `R$ ${salarioLiquido}`
+    // resultado.classList.toggle("visivel")
+
+
 }
