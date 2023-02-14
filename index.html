@@ -13,10 +13,14 @@
     </header>
     <div class="Meio">
         <form id="Salario">
-            <label for="salario-bruto"><b>Salario Bruto</b></label>
-            <input type="text" id="salario-bruto">
-            <label for="dependentes"><b>Depedentes</b></label>
-            <input type="text" id="dependentes">
+            <div>
+                <input type="text" id="salario-bruto">
+                <label for="salario-bruto" class="labelf"><b>Salario Bruto</b></label>
+            </div>
+            <div>
+                <input type="text" id="dependentes">
+                <label for="dependentes" class="labelf"><b>Depedentes</b></label>
+            </div>
             <div class="vale">
                 <input type="checkbox" id="checkbox" >
                 <label for="checkbox"><b>Vale transporte</b></label>
@@ -24,7 +28,7 @@
             <button type="submit" class="botao">Calcular</button>
         </form>
 
-        <form id="Resultado">
+        <form class="resultado" >
             <h2>Resultado</h2>
             <table class="tabela_impostos">
                 <tr>

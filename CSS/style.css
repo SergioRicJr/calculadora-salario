@@ -50,8 +50,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 10%;
-gap: 25px;
+gap: 30px;
 background-color: rgba(10, 8, 8, 0.55);
 box-shadow: -5px 4px 15px rgb(8, 112, 35);
 border-radius: 15%;
@@ -65,8 +64,18 @@ width: 350px;
     width: 150px;
 }
 
-#Salario input{
-    width: 135%;
+#Salario div{
+    width: auto;
+    position: relative;
+}
+
+#Salario div .labelf{
+    width: auto;
+    position: absolute;
+    left: 4px;
+    bottom: 0px;
+    z-index: 1;
+    color: #47a447;
 }
 
 .vale{
@@ -74,8 +83,11 @@ width: 350px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: -30px;
-    
+}
+
+#dependentes, #salario-bruto {
+    width: 200px;
+    height: 23px;
 }
 
 #checkbox{
@@ -94,7 +106,10 @@ width: 350px;
     gap: 40px;
 }
 
-#Resultado{
+
+
+.resultado{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,15 +121,15 @@ width: 350px;
     box-shadow: -5px 4px 15px rgb(8, 112, 35);
     padding: 30px;
 }
+
 .tabela_impostos{
     display: flex;
-    
+    flex-direction: column;
 }
 
 #Resultado h2{
     display: flex;
 }
-
 
 .valor-salario-bruto{
     display: flex;
@@ -162,5 +177,4 @@ width: 350px;
     font-size: 15px;
     border: 1px solid #47a447;
     padding: 4px;
-    
 }

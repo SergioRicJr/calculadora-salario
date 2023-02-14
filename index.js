@@ -1,7 +1,7 @@
 var formulario = document.querySelector("#Salario")
 var salarioBruto = document.querySelector("#salario-bruto")
 var dependentes = document.querySelector("#dependentes")
-// var resultado = document.querySelector("")
+var resultado = document.querySelector("#resultado")
 var tabelaSalarioBruto = document.querySelector(".valor-salario-bruto")
 var tabelaINSS = document.querySelector(".valor-inss")
 var tabelaIRRF = document.querySelector(".valor-irrf")
@@ -11,9 +11,14 @@ var Enviar = document.querySelector(".botao")
 var Vale = document.querySelector("#checkbox")
 
 formulario.addEventListener("submit", (e)=> {
-    e.preventDefault()
+    
     // adicionar condicoes de preenchimento dos campos
-    calcular()
+    if (salarioBruto.value == "" || dependentes.value == "") {
+        window.alert("Por favor ,preencha os campos corretamente!")
+    } else {
+        calcular()
+    }
+        
 })
 
 function calcular() {
@@ -61,7 +66,13 @@ function calcular() {
     }
 
     INSS = Number(INSS).toFixed(2)
-    IRRF = Number(IRRF).toFixed(2)
+    
+    if (IRRF<=0){ 
+        IRRF = 0
+    } else {
+        IRRF = Number(IRRF).toFixed(2)
+    }
+
 
     if (Vale.checked){
         var valeTransporte = Number(salarioBrutoValue*0.06)
@@ -71,14 +82,13 @@ function calcular() {
         var valeTransporte = 0
         tabelaValeTransporte.textContent = `R$ 0,00`
     }
+
     
-    var salarioLiquido = salarioBrutoValue - valeTransporte - INSS - IRRF
+    salarioLiquido = (salarioBrutoValue - valeTransporte - INSS - IRRF).toFixed(2)
 
     tabelaSalarioBruto.textContent = `R$ ${salarioBrutoValue}`
     tabelaINSS.textContent = `R$ ${INSS}`
     tabelaIRRF.textContent = `R$ ${IRRF}`
     tabelaSalarioLiquido.textContent = `R$ ${salarioLiquido}`
-    // resultado.classList.toggle("visivel")
-
-
+    resultado.classList.toggle("visivel")
 }
