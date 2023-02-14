@@ -124,8 +124,7 @@ width: 350px;
 
 
 .resultado{
-    position: relative;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     background-color: rgba(10, 8, 8, 0.55);
@@ -135,6 +134,10 @@ width: 350px;
     gap: 20px;
     box-shadow: -5px 4px 15px rgb(8, 112, 35);
     padding: 30px;
+}
+
+.activate {
+    display: flex;
 }
 
 .tabela_impostos{

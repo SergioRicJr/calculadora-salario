@@ -1,7 +1,7 @@
 var formulario = document.querySelector("#Salario")
 var salarioBruto = document.querySelector("#salario-bruto")
 var dependentes = document.querySelector("#dependentes")
-var resultado = document.querySelector("#resultado")
+var resultado = document.querySelector(".resultado")
 var tabelaSalarioBruto = document.querySelector(".valor-salario-bruto")
 var tabelaINSS = document.querySelector(".valor-inss")
 var tabelaIRRF = document.querySelector(".valor-irrf")
@@ -107,5 +107,5 @@ function calcular() {
     tabelaINSS.textContent = `R$ ${INSS}`
     tabelaIRRF.textContent = `R$ ${IRRF}`
     tabelaSalarioLiquido.textContent = `R$ ${salarioLiquido}`
-    resultado.classList.toggle("visivel")
+    resultado.classList.add("activate")
 }
