@@ -9,16 +9,33 @@ var tabelaValeTransporte = document.querySelector(".valor-transporte")
 var tabelaSalarioLiquido = document.querySelector(".valor-salario-liquido")
 var Enviar = document.querySelector(".botao")
 var Vale = document.querySelector("#checkbox")
+var input = document.querySelectorAll(".input-dado")
+// var label = document.querySelector(".labelf")
+// onBlur é quando clica fora do elemento focado
+
+function campo(n) {
+    var area = input[n]
+    var label = area.parentElement.lastElementChild
+    if (area.value != "") {
+        label.style.color = "#47a447"
+        label.style.fontSize = "0.95em"
+        label.style.top = "-20px"
+    } else {
+        label.style.color = "#ffffff"
+        label.style.fontSize = "20px" 
+        label.style.top = "-5px"
+    }
+}
+
 
 formulario.addEventListener("submit", (e)=> {
-    
+    e.preventDefault()
     // adicionar condicoes de preenchimento dos campos
     if (salarioBruto.value == "" || dependentes.value == "") {
         window.alert("Por favor ,preencha os campos corretamente!")
     } else {
         calcular()
     }
-        
 })
 
 function calcular() {
@@ -68,14 +85,14 @@ function calcular() {
     INSS = Number(INSS).toFixed(2)
     
     if (IRRF<=0){ 
-        IRRF = 0
+        IRRF = 0.00
     } else {
         IRRF = Number(IRRF).toFixed(2)
     }
 
 
     if (Vale.checked){
-        var valeTransporte = Number(salarioBrutoValue*0.06)
+        var valeTransporte = Number(salarioBrutoValue*0.06).toFixed(2)
         tabelaValeTransporte.textContent = `R$ ${valeTransporte}`
     }
     else {

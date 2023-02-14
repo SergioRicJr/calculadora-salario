@@ -7,6 +7,7 @@
 body{
     color:black;
     background-image: url(../img/333537.jpg) ;
+    background-size: 100%;
     width: 100vw;
 }
 
@@ -41,8 +42,6 @@ footer{
 
 footer p{
     font-size: 20px;
-    box-shadow: -5px 4px 15px rgb(6, 94, 53);
-    
 }
 
 #Salario{
@@ -51,7 +50,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 gap: 30px;
-background-color: rgba(10, 8, 8, 0.55);
+background-color: rgba(10, 8, 8, 0.699);
 box-shadow: -5px 4px 15px rgb(8, 112, 35);
 border-radius: 15%;
 height: 350px;
@@ -61,7 +60,8 @@ width: 350px;
 #Salario label{
     font-size: 20px;
     text-align: center;
-    width: 150px;
+    width: auto;
+    cursor: text;
 }
 
 #Salario div{
@@ -69,13 +69,13 @@ width: 350px;
     position: relative;
 }
 
-#Salario div .labelf{
+.labelf{
     width: auto;
     position: absolute;
-    left: 4px;
-    bottom: 0px;
+    left: 0px;
+    bottom: 5px;
     z-index: 1;
-    color: #47a447;
+    color: #ffffff;
 }
 
 .vale{
@@ -83,11 +83,26 @@ width: 350px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 15px;
 }
 
 #dependentes, #salario-bruto {
     width: 200px;
     height: 23px;
+    background-color: rgba(0, 0, 0, 0.027);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2em;
+    border-bottom: 2px solid ;
+}
+
+/* o sinal de + aplica tal coisa no proximo elemento adjacente do tipo*/
+.input-dado:focus + label{  
+    color: #47a447 !important;
+    font-size: 0.95em !important;
+    top: -20px !important;
+    transition: .3s;
 }
 
 #checkbox{
