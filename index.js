@@ -27,12 +27,13 @@ function campo(n) {
     }
 }
 
-
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault()
     // adicionar condicoes de preenchimento dos campos
     if (salarioBruto.value == "" || dependentes.value == "") {
-        window.alert("Por favor, preencha os campos corretamente!")
+        window.alert("Existem campos vazios, por favor, preencha corretamente!")
+    } else if (!dependentes.value.match(/^\s*[0-9]{1,2}\s*$/) || !salarioBruto.value.match(/^\s*[0-9]{3,10}(,|.)[0-9]{0,2}\s*$/)){
+        window.alert("Exitem campos que não foram preenchidos corretamente")
     } else {
         calcular()
     }
