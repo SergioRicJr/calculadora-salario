@@ -39,7 +39,9 @@ formulario.addEventListener("submit", (e)=> {
 })
 
 function calcular() {
-    var salarioBrutoValue = Number(salarioBruto.value)
+    var salarioBrutoValue = String(salarioBruto.value)
+    salarioBrutoValue = salarioBrutoValue.replace(",",".")
+    salarioBrutoValue = Number(salarioBrutoValue)
     var dependentesValue = Number(dependentes.value)
 
     switch (true) {
