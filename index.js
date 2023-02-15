@@ -24,7 +24,7 @@ function campo(n) {
         label.style.color = "#ffffff"
         label.style.fontSize = "20px" 
         label.style.top = "-5px"
-    }
+    }                                       
 }
 
 formulario.addEventListener("submit", (e)=> {

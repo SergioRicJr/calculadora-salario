@@ -51,7 +51,6 @@ align-items: center;
 justify-content: center;
 gap: 30px;
 background-color: rgba(10, 8, 8, 0.8);
-box-shadow: -5px 4px 15px rgb(8, 112, 35);
 border-radius: 15%;
 height: 350px;
 width: 350px;
@@ -131,7 +130,6 @@ width: 350px;
     height: 350px;
     width: 350px;
     gap: 20px;
-    box-shadow: -5px 4px 15px rgb(8, 112, 35);
     padding: 30px;
 }
 
